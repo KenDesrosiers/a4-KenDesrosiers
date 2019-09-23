@@ -4,9 +4,9 @@ serveStatic = require('serve-static'),
 helmet = require('helmet'),
 compression = require('compression'),
 port = process.env.PORT || 3000,
-path = require('path');
-app.use(helmet());
-app.use(compression());
+path = require('path')
+app.use(helmet())
+app.use(compression())
 
 app.use(serveStatic('public', { 'index': false}));
 
