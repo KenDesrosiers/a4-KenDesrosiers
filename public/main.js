@@ -13,6 +13,7 @@ window.onload = function() {
           .style('height', '10vw')
           .style('width', '10vw')
           .style('margin', 'auto')
+          .style('cursor', 'pointer')
           .style('border', '2px white solid')
           .style('border-radius', '50%')
     })
