@@ -3,12 +3,88 @@
 <head>
   <title>Ken's Pokedex</title>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <link rel="icon" type="image/png" href="assets/favicon.ico">
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src='main.js'></script>
   <link rel = "stylesheet" type = "text/css" href = "style.css"/>
 </head>
 <body style="background-color: black">
-  <nav style="width: 99vw; height: 15vh; background-color: red"></nav>
+  <div style="text-align: center; width: 99vw; height: 15vh; background-color: red; color: white;">
+    <!--<h1>Ken's Generation I Pokedex</h1>-->
+    <h1>TITLE</h1>
+    <h3>
+      <span style="margin-right: 4vw">Filter By:</span>
+      <span>
+        <button style="margin-right: 3vw;" type="button" class="btn dropdown-toggle" data-toggle="dropdown">Type</button>
+        <div id="types" style="overflow: scroll; height: 20vh;" class="dropdown-menu">
+          <label><input type="checkbox" name="type1" value="Normal"> Normal</label><br>
+          <label><input type="checkbox" name="type2" value="Fighting"> Fighting</label><br>
+          <label><input type="checkbox" name="type3" value="Flying"> Flying</label><br>
+          <label><input type="checkbox" name="type4" value="Poison"> Poison</label><br>
+          <label><input type="checkbox" name="type5" value="Ground"> Ground</label><br>
+          <label><input type="checkbox" name="type6" value="Rock"> Rock</label><br>
+          <label><input type="checkbox" name="type7" value="Bug"> Bug</label><br>
+          <label><input type="checkbox" name="type8" value="Ghost"> Ghost</label><br>
+          <label><input type="checkbox" name="type9" value="Fire"> Fire</label><br>
+          <label><input type="checkbox" name="type10" value="Water"> Water</label><br>
+          <label><input type="checkbox" name="type11" value="Grass"> Grass</label><br>
+          <label><input type="checkbox" name="type12" value="Electric"> Electric</label><br>
+          <label><input type="checkbox" name="type13" value="Psychic"> Psychic</label><br>
+          <label><input type="checkbox" name="type14" value="Ice"> Ice</label><br>
+          <label><input type="checkbox" name="type15" value="Dragon"> Dragon</label><br>
+        </div>
+    </span>
+    <span>
+      <button style="margin-right: 3vw;" type="button" class="btn dropdown-toggle" data-toggle="dropdown">Weaknesses</button>
+      <div id="weaknesses" style="overflow: scroll; height: 20vh;" class="dropdown-menu">
+        <label><input type="checkbox" name="weakness1" value="Normal"> Normal</label><br>
+        <label><input type="checkbox" name="weakness2" value="Fighting"> Fighting</label><br>
+        <label><input type="checkbox" name="weakness3" value="Flying"> Flying</label><br>
+        <label><input type="checkbox" name="weakness4" value="Poison"> Poison</label><br>
+        <label><input type="checkbox" name="weakness5" value="Ground"> Ground</label><br>
+        <label><input type="checkbox" name="weakness6" value="Rock"> Rock</label><br>
+        <label><input type="checkbox" name="weakness7" value="Bug"> Bug</label><br>
+        <label><input type="checkbox" name="weakness8" value="Ghost"> Ghost</label><br>
+        <label><input type="checkbox" name="weakness9" value="Fire"> Fire</label><br>
+        <label><input type="checkbox" name="weakness10" value="Water"> Water</label><br>
+        <label><input type="checkbox" name="weakness11" value="Grass"> Grass</label><br>
+        <label><input type="checkbox" name="weakness12" value="Electric"> Electric</label><br>
+        <label><input type="checkbox" name="weakness13" value="Psychic"> Psychic</label><br>
+        <label><input type="checkbox" name="weakness14" value="Ice"> Ice</label><br>
+        <label><input type="checkbox" name="weakness15" value="Dragon"> Dragon</label><br>
+        <label><input type="checkbox" name="weakness16" value="Fairy"> Fairy</label><br>
+        <label><input type="checkbox" name="weakness17" value="Dark"> Dark</label><br>
+        <label><input type="checkbox" name="weakness18" value="Steel"> Steel</label><br>
+      </div>
+    </span>
+    <span>
+      <button onclick="filterAll()" type="button">Filter</button>
+    </span>
+    </h3>
+  </div>
+  <div class="modal fade pokemonentry" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: red; color: white;">
+          <h2 style="margin: auto;" class="modal-title"></h2>
+        </div>
+        <div class="modal-body">
+          <img class="pokemonmodalimage" style="margin: auto; display: block;" src=""/>
+          <h3>Stats:</h3>
+          <p>Type(s): <span class="pokemontype"></span></p>
+          <p>Weaknesses: <span class="pokemonweaknesses"></span></p>
+          <p>Height: <span class="pokemonheight"></span></p>
+          <p>Weight: <span class="pokemonweight"></span></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
