@@ -1,4 +1,7 @@
+let songs = ["assets/1.mp3","assets/2.mp3","assets/3.mp3","assets/4.mp3","assets/5.mp3"]
+count = 0;
 window.onload = function() {
+  document.querySelector('audio').src = songs[0];
   fetch( "https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json" )
     .then( data => data.json() )
     .then( pokemondata => {
@@ -147,4 +150,13 @@ function toggleColorMode(){
       elements[i].style.color = 'black'
     }
   }
+}
+
+function changeSong(){
+  if(count < 4){
+    count++
+  } else{
+    count = 0
+  }
+  document.querySelector('audio').src = songs[count]
 }

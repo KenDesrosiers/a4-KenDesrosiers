@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <title>Ken's Pokedex</title>
+  <title>Ken's Pokédex</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -13,8 +13,11 @@
   <link rel = "stylesheet" type = "text/css" href = "style.css"/>
 </head>
 <body style="background-color:black;">
+  <audio loop autoplay>
+  <source src="" type="audio/mpeg">
+  </audio>
   <div style="text-align: center; width: 99vw; height: 17vh; background-color: red; color: black;">
-    <h1>Ken's Generation I Pokedex</h1>
+    <h1>Ken's Generation I Pokédex</h1>
     <h3>
       <span style="margin-right: 4vw">Filter By:</span>
       <span style="margin-right: 3vw;">
@@ -72,7 +75,7 @@
     </h3>
     <div style="display: inline-block;">
     <button onclick="toggleColorMode()" class="btn change" id="colormode" style="border-radius:20%;background-color: black; color: white; margin-right: 2vw;"><b>Light Mode</b></button>
-    <button class="btn change" id="colormode" style="border-radius:20%;background-color: black; color: white;"><b>Change Song</b></button>
+    <button onclick="changeSong()" class="btn change" id="colormode" style="border-radius:20%;background-color: black; color: white;"><b>Change Song</b></button>
   </div>
   </div>
   <br>
