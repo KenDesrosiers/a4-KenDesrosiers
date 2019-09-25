@@ -12,14 +12,13 @@
   <script src='main.js'></script>
   <link rel = "stylesheet" type = "text/css" href = "style.css"/>
 </head>
-<body style="background-color: black">
+<body>
   <div style="text-align: center; width: 99vw; height: 15vh; background-color: red; color: white;">
-    <!--<h1>Ken's Generation I Pokedex</h1>-->
-    <h1>TITLE</h1>
+    <h1>Ken's Generation I Pokedex</h1>
     <h3>
       <span style="margin-right: 4vw">Filter By:</span>
-      <span>
-        <button style="margin-right: 3vw;" type="button" class="btn dropdown-toggle" data-toggle="dropdown">Type</button>
+      <span style="margin-right: 3vw;">
+        <button style="font-size: 1vw; color: white;" type="button" class="btn dropdown-toggle" data-toggle="dropdown"><b>Type</b></button>
         <div id="types" style="overflow: scroll; height: 20vh;" class="dropdown-menu">
           <label><input type="checkbox" name="type1" value="Normal"> Normal</label><br>
           <label><input type="checkbox" name="type2" value="Fighting"> Fighting</label><br>
@@ -38,8 +37,8 @@
           <label><input type="checkbox" name="type15" value="Dragon"> Dragon</label><br>
         </div>
     </span>
-    <span>
-      <button style="margin-right: 3vw;" type="button" class="btn dropdown-toggle" data-toggle="dropdown">Weaknesses</button>
+    <span style="margin-right: 3vw;">
+      <button style="font-size: 1vw; color: white;" type="button" class="btn dropdown-toggle" data-toggle="dropdown"><b>Weakness</b></button>
       <div id="weaknesses" style="overflow: scroll; height: 20vh;" class="dropdown-menu">
         <label><input type="checkbox" name="weakness1" value="Normal"> Normal</label><br>
         <label><input type="checkbox" name="weakness2" value="Fighting"> Fighting</label><br>
@@ -61,26 +60,33 @@
         <label><input type="checkbox" name="weakness18" value="Steel"> Steel</label><br>
       </div>
     </span>
+    <span style="font-size: 1vw;margin-right: 3vw;">
+        <b>Weight (kg)</b> <input id="weight" type="range" name="weight" value="465" min="0.1" max="465" step="0.1">
+    </span>
+    <span style="font-size: 1vw;margin-right: 3vw;">
+        <b>Height (m)</b> <input id="height" type="range" name="height" value="9" min="0.2" max="9" step="0.1">
+    </span>
     <span>
-      <button onclick="filterAll()" type="button">Filter</button>
+      <button class="btn btn-dark" onclick="filterAll()" type="button" style="border-radius:20%; cursor: pointer;"><b>Filter</b></button>
     </span>
     </h3>
   </div>
+  <br>
   <div class="modal fade pokemonentry" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header" style="background-color: red; color: white;">
           <h2 style="margin: auto;" class="modal-title"></h2>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" style="background-color: black; color: white;">
           <img class="pokemonmodalimage" style="margin: auto; display: block;" src=""/>
           <h3>Stats:</h3>
           <p>Type(s): <span class="pokemontype"></span></p>
-          <p>Weaknesses: <span class="pokemonweaknesses"></span></p>
+          <p>Weakness(es): <span class="pokemonweaknesses"></span></p>
           <p>Height: <span class="pokemonheight"></span></p>
           <p>Weight: <span class="pokemonweight"></span></p>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer" style="background-color: black;">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
       </div>

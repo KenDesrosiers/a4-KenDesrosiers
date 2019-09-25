@@ -26,7 +26,10 @@ app.post('/', function(req, res) {
 app.post('/update', function(req, res) {
   activesubset = [];
   let weaknesses = [],
-  types = []
+  types = [],
+  weights = [],
+  heights = []
+  //assess types
   if(req.body.types.length === 0){
     types = fulldataset
   } else{
@@ -38,6 +41,7 @@ app.post('/update', function(req, res) {
       })
     })
   }
+  //assess weaknesses
   if(req.body.weaknesses.length === 0){
     weaknesses = fulldataset
   } else{
@@ -49,8 +53,22 @@ app.post('/update', function(req, res) {
       })
     })
   }
+  //assess height
   fulldataset.forEach(function(element){
-    if(types.includes(element) && weaknesses.includes(element)){
+    let h = Number(element.height.substring(0, element.height.length - 2))
+    if(h <= req.body.height){
+      heights.push(element)
+    }
+  })
+  //assess weight
+  fulldataset.forEach(function(element){
+    let w = Number(element.weight.substring(0, element.weight.length - 3))
+    if(w <= req.body.weight){
+      weights.push(element)
+    }
+  })
+  fulldataset.forEach(function(element){
+    if(types.includes(element) && weaknesses.includes(element) && heights.includes(element) && weights.includes(element)){
       activesubset.push(element)
     }
   })

@@ -20,11 +20,12 @@ window.onload = function() {
           .style('margin-top', '0.25vw')
           .style('display', 'inline-block')
           .append("img")
-          //.attr('src', d => d.value.img)
+          .attr('src', d => d.value.img)
           .style('height', '10vw')
           .style('width', '10vw')
           .style('margin', 'auto')
-          .style('cursor', 'pointer')
+          .on('mouseover', function(){d3.select(event.currentTarget).style('background-color', '#3d3d3d')})
+          .on('mouseout', function(){d3.select(event.currentTarget).style('background-color', 'black')})
           .style('border', '2px red solid')
           .style('border-radius', '50%')
           .on('click', d => fillModal(d))
@@ -36,8 +37,8 @@ window.onload = function() {
 
 function fillModal(param){
   document.querySelector('.modal-title').innerHTML = param.value.name
-  document.querySelector('.pokemontype').innerHTML = param.value.type
-  document.querySelector('.pokemonweaknesses').innerHTML = param.value.weaknesses
+  document.querySelector('.pokemontype').innerHTML = param.value.type.join(', ')
+  document.querySelector('.pokemonweaknesses').innerHTML = param.value.weaknesses.join(', ')
   document.querySelector('.pokemonweight').innerHTML = param.value.weight
   document.querySelector('.pokemonheight').innerHTML = param.value.height
   document.querySelector('.pokemonmodalimage').src = param.value.img
@@ -56,7 +57,7 @@ function filterAll(){
   checkedWeaknesses.forEach(function(element){
     weaknessArray.push(element.value)
   })
-  let json = {types: typeArray, weaknesses: weaknessArray}
+  let json = {types: typeArray, weaknesses: weaknessArray, height: document.querySelector('#height').value, weight: document.querySelector('#weight').value}
   let body = JSON.stringify(json);
   fetch('/update', {
     method: 'POST',
@@ -74,11 +75,12 @@ function filterAll(){
   .style('margin-top', '0.25vw')
   .style('display', 'inline-block')
   .append("img")
-  //.attr('src', d => d.value.img)
+  .attr('src', d => d.value.img)
   .style('height', '10vw')
   .style('width', '10vw')
   .style('margin', 'auto')
-  .style('cursor', 'pointer')
+  .on('mouseover', function(){d3.select(event.currentTarget).style('background-color', '#3d3d3d')})
+  .on('mouseout', function(){d3.select(event.currentTarget).style('background-color', 'black')})
   .style('border', '2px red solid')
   .style('border-radius', '50%')
   .on('click', d => fillModal(d))
