@@ -25,7 +25,7 @@ window.onload = function() {
           .style('width', '10vw')
           .style('margin', 'auto')
           .on('mouseover', function(){d3.select(event.currentTarget).style('background-color', '#3d3d3d')})
-          .on('mouseout', function(){d3.select(event.currentTarget).style('background-color', 'black')})
+          .on('mouseout', function(){d3.select(event.currentTarget).style('background-color', 'transparent')})
           .style('border', '2px red solid')
           .style('border-radius', '50%')
           .on('click', d => fillModal(d))
@@ -80,11 +80,71 @@ function filterAll(){
   .style('width', '10vw')
   .style('margin', 'auto')
   .on('mouseover', function(){d3.select(event.currentTarget).style('background-color', '#3d3d3d')})
-  .on('mouseout', function(){d3.select(event.currentTarget).style('background-color', 'black')})
+  .on('mouseout', function(){d3.select(event.currentTarget).style('background-color', 'transparent')})
   .style('border', '2px red solid')
   .style('border-radius', '50%')
   .on('click', d => fillModal(d))
   .attr('data-toggle', 'modal')
   .attr('data-target', '.pokemonentry')
   })
+}
+
+
+
+function toggleColorMode(){
+  if(document.body.style.backgroundColor === 'black'){
+    document.body.style.backgroundColor = 'white'
+    let elements = document.getElementsByClassName('change')
+    for (let i = 0; i < elements.length; i++ ) {
+      elements[i].style.backgroundColor = 'white'
+      elements[i].style.color = 'black'
+    }
+    document.querySelector('#colormode').innerHTML = '<b>Dark Mode</b>'
+    document.querySelector('h3').style.color = 'white'
+    document.querySelector('h1').style.color = 'white'
+    elements = document.getElementsByClassName('otherchange')
+    for (let i = 0; i < elements.length; i++ ) {
+      elements[i].style.color = 'white'
+    }
+    elements = document.getElementsByClassName('modal-body')
+    for (let i = 0; i < elements.length; i++ ) {
+      elements[i].style.backgroundColor = 'white'
+      elements[i].style.color = 'black'
+    }
+    elements = document.getElementsByClassName('modal-footer')
+    for (let i = 0; i < elements.length; i++ ) {
+      elements[i].style.backgroundColor = 'white'
+    }
+    elements = document.getElementsByClassName('modal-header')
+    for (let i = 0; i < elements.length; i++ ) {
+      elements[i].style.color = 'white'
+    }
+  } else{
+    document.body.style.backgroundColor = 'black'
+    let elements = document.getElementsByClassName('change')
+    for (let i = 0; i < elements.length; i++ ) {
+      elements[i].style.backgroundColor = 'black'
+      elements[i].style.color = 'white'
+    }
+    document.querySelector('#colormode').innerHTML = '<b>Light Mode</b>'
+    document.querySelector('h3').style.color = 'black'
+    document.querySelector('h1').style.color = 'black'
+    elements = document.getElementsByClassName('otherchange')
+    for (let i = 0; i < elements.length; i++ ) {
+      elements[i].style.color = 'black'
+    }
+    elements = document.getElementsByClassName('modal-body')
+    for (let i = 0; i < elements.length; i++ ) {
+      elements[i].style.backgroundColor = 'black'
+      elements[i].style.color = 'white'
+    }
+    elements = document.getElementsByClassName('modal-footer')
+    for (let i = 0; i < elements.length; i++ ) {
+      elements[i].style.backgroundColor = 'black'
+    }
+    elements = document.getElementsByClassName('modal-header')
+    for (let i = 0; i < elements.length; i++ ) {
+      elements[i].style.color = 'black'
+    }
+  }
 }

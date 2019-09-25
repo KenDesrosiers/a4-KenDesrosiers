@@ -12,13 +12,13 @@
   <script src='main.js'></script>
   <link rel = "stylesheet" type = "text/css" href = "style.css"/>
 </head>
-<body>
-  <div style="text-align: center; width: 99vw; height: 15vh; background-color: red; color: white;">
+<body style="background-color:black;">
+  <div style="text-align: center; width: 99vw; height: 17vh; background-color: red; color: black;">
     <h1>Ken's Generation I Pokedex</h1>
     <h3>
       <span style="margin-right: 4vw">Filter By:</span>
       <span style="margin-right: 3vw;">
-        <button style="font-size: 1vw; color: white;" type="button" class="btn dropdown-toggle" data-toggle="dropdown"><b>Type</b></button>
+        <button style="font-size: 1vw; color: black;" type="button" class="btn dropdown-toggle otherchange" data-toggle="dropdown"><b>Type</b></button>
         <div id="types" style="overflow: scroll; height: 20vh;" class="dropdown-menu">
           <label><input type="checkbox" name="type1" value="Normal"> Normal</label><br>
           <label><input type="checkbox" name="type2" value="Fighting"> Fighting</label><br>
@@ -38,7 +38,7 @@
         </div>
     </span>
     <span style="margin-right: 3vw;">
-      <button style="font-size: 1vw; color: white;" type="button" class="btn dropdown-toggle" data-toggle="dropdown"><b>Weakness</b></button>
+      <button style="font-size: 1vw; color: black;" type="button" class="btn dropdown-toggle otherchange" data-toggle="dropdown"><b>Weakness</b></button>
       <div id="weaknesses" style="overflow: scroll; height: 20vh;" class="dropdown-menu">
         <label><input type="checkbox" name="weakness1" value="Normal"> Normal</label><br>
         <label><input type="checkbox" name="weakness2" value="Fighting"> Fighting</label><br>
@@ -67,19 +67,23 @@
         <b>Height (m)</b> <input id="height" type="range" name="height" value="9" min="0.2" max="9" step="0.1">
     </span>
     <span>
-      <button class="btn btn-dark" onclick="filterAll()" type="button" style="border-radius:20%; cursor: pointer;"><b>Filter</b></button>
+        <button class="btn change" onclick="filterAll()" type="button" style="border-radius:20%; background-color: black; color: white;"><b>Filter</b></button>
     </span>
     </h3>
+    <div style="display: inline-block;">
+    <button onclick="toggleColorMode()" class="btn change" id="colormode" style="border-radius:20%;background-color: black; color: white; margin-right: 2vw;"><b>Light Mode</b></button>
+    <button class="btn change" id="colormode" style="border-radius:20%;background-color: black; color: white;"><b>Change Song</b></button>
+  </div>
   </div>
   <br>
   <div class="modal fade pokemonentry" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header" style="background-color: red; color: white;">
+        <div class="modal-header" style="background-color: red; color: black;">
           <h2 style="margin: auto;" class="modal-title"></h2>
         </div>
         <div class="modal-body" style="background-color: black; color: white;">
-          <img class="pokemonmodalimage" style="margin: auto; display: block;" src=""/>
+          <img class="pokemonmodalimage" style="margin: auto; display: block; height: 15vw; width: 15vw;" src=""/>
           <h3>Stats:</h3>
           <p>Type(s): <span class="pokemontype"></span></p>
           <p>Weakness(es): <span class="pokemonweaknesses"></span></p>
