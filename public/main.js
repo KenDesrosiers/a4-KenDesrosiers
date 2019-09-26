@@ -104,6 +104,8 @@ function toggleColorMode(){
     }
     document.querySelector('#colormode').innerHTML = '<b>Dark Mode</b>'
     document.querySelector('h3').style.color = 'white'
+    document.querySelector('#help').style.color = 'white'
+    document.querySelector('#modaltext').style.color = 'black'
     document.querySelector('h1').style.color = 'white'
     elements = document.getElementsByClassName('otherchange')
     for (let i = 0; i < elements.length; i++ ) {
@@ -127,6 +129,8 @@ function toggleColorMode(){
     let elements = document.getElementsByClassName('change')
     for (let i = 0; i < elements.length; i++ ) {
       elements[i].style.backgroundColor = 'black'
+      document.querySelector('#help').style.color = 'black'
+      document.querySelector('#modaltext').style.color = 'white'
       elements[i].style.color = 'white'
     }
     document.querySelector('#colormode').innerHTML = '<b>Light Mode</b>'
@@ -159,4 +163,12 @@ function changeSong(){
     count = 0
   }
   document.querySelector('audio').src = songs[count]
+}
+
+
+function helpMe(event){
+  let key = event.which
+  if(key === 47){
+    $('#helpme').modal('show')
+  }
 }

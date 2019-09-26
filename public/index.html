@@ -12,11 +12,11 @@
   <script src='main.js'></script>
   <link rel = "stylesheet" type = "text/css" href = "style.css"/>
 </head>
-<body style="background-color:black;">
+<body onkeypress="helpMe(event)" style="background-color:black;">
   <audio loop autoplay>
   <source src="" type="audio/mpeg">
   </audio>
-  <div style="text-align: center; width: 99vw; height: 17vh; background-color: red; color: black;">
+  <div style="text-align: center; width: 99vw; height: 20vh; background-color: red; color: black;">
     <h1>Ken's Generation I Pokédex</h1>
     <h3>
       <span style="margin-right: 4vw">Filter By:</span>
@@ -74,8 +74,9 @@
     </span>
     </h3>
     <div style="display: inline-block;">
-    <button onclick="toggleColorMode()" class="btn change" id="colormode" style="border-radius:20%;background-color: black; color: white; margin-right: 2vw;"><b>Light Mode</b></button>
-    <button onclick="changeSong()" class="btn change" id="colormode" style="border-radius:20%;background-color: black; color: white;"><b>Change Song</b></button>
+    <button id="colormode" onclick="toggleColorMode()" class="btn change" style="border-radius:20%;background-color: black; color: white; margin-right: 2vw;"><b>Light Mode</b></button>
+    <button onclick="changeSong()" class="btn change" style="border-radius:20%;background-color: black; color: white;"><b>Change Song</b></button>
+    <p style="color:black;" id="help">Press (?) for help!</p>
   </div>
   </div>
   <br>
@@ -92,6 +93,19 @@
           <p>Weakness(es): <span class="pokemonweaknesses"></span></p>
           <p>Height: <span class="pokemonheight"></span></p>
           <p>Weight: <span class="pokemonweight"></span></p>
+        </div>
+        <div class="modal-footer" style="background-color: black;">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="helpme" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body" style="background-color: black; color: white;">
+          <h3>How to Use:</h3>
+          <p id="modaltext">This application allows you to sort through generation I pokémon by type, weakness, height, and weight. Once you configure all the parameters you want, click the filter button in order to sort. Also, you can change the current song by pressing the change song button, as well as switch between light and dark mode. To bring up this menu again, just press the ? button on your keyboard!</p>
         </div>
         <div class="modal-footer" style="background-color: black;">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
