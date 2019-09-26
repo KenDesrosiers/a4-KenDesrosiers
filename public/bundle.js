@@ -75,6 +75,7 @@ var songs = ['assets/1.mp3', 'assets/2.mp3', 'assets/3.mp3', 'assets/4.mp3', 'as
 var count = 0;
 
 window.onload = function () {
+  $('#helpme').modal('show');
   fetch('https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json').then(function (data) {
     return data.json();
   }).then(function (pokemondata) {
